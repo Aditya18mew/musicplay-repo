@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Aditya parmar">
+        <title>music player</title>
+        <link rel="stylesheet" href="musicplayer.css">
+    </head>
+    <body>
+        <main>
+        <div class="nav">
+             <button class="nav__button downarrow " id="navtogglebutton" >></button>
+             <div id="nav_menu">
+                <button>home</button>
+                <button>contact</button>
+            
+                
+             </div>
+            <h1 class="nav__h1" id="nav_h1"><strong class="iconmusic">♬</strong>NOW PLAYING</h1>
+            <button class="nav__button" id="navbackgroundbutton">☰</button>
+            <div id="nav_background">
+              
+                <button>
+                  <input type="text" name="search" id="search" placeholder="search">
+                 </button>
+                 <button id="searchbutton">search</button>
+                
+                 <div id="songlist"></div>
+            
+            </div>
+        </div>
+
+<div class="center">
+
+</div>
+<div class="songname">
+    <p id="songname"></p>
+</div>
+
+<div class="bottom">
+    <button class="previoussong" id="previoussong">⋖</button>
+    <button class="bottom_updown sideleft" id="rewind">↺</button>
+    <button class="bottom_play" id="button_play">></button>
+    <button class="bottom_updown sideright" id="forward">↻</button>
+    <button class="nextsong" id="nextsong"> ⋗ </button>
+   
+
+</div>
+<div class="sliderm">
+   <input id="slider" type="range" class="sliderbutton"  >
+</div>
+<div class="time">
+<p class="currentduration" id="currentduration"></p>
+<p  class="showduration" id="duration"></p>
+
+</div>
+
+
+
+    </main>
+    <script src="musicplayer.js"></script>
+    </body>
+</html>
+
