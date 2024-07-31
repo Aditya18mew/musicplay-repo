@@ -14,7 +14,9 @@ let showduration=document.getElementById("duration")
 
 
 
-let songs=['Vaaste - Dhvani Bhanushali.mp3',`Dilbar - Satyameva Jayate 320Kbps.mp3`,`Dil Galti Kar Baitha Hai - Jubin Nautiyal.mp3`,`I can see you from behind.mp3`,`Jo Mujhe Deewana Kar De - Tulsi Kumar.mp3`,`Khwaab Khwaab.mp3`,`Kusu Kusu - Satyameva Jayate 2.mp3`,`Leja Re.mp3`,`Raataan Lambiyan - Shershaah.mp3`,`Tere Hoth Madhur Hain Mukh Bhi Madhur - Adharam Madhuram ! Hindi.mp3`,`Thakim Tumar Hote Hukhot Song.mp3`,`Tum Hi Aana - Marjaavaan.mp3`]
+
+
+let songs=['Vaaste - Dhvani Bhanushali.mp3',`Nadaaniyan(PagalNew.Com.Se).mp3`,`Dilbar - Satyameva Jayate 320Kbps.mp3`,`Dil Galti Kar Baitha Hai - Jubin Nautiyal.mp3`,`I can see you from behind.mp3`,`Jo Mujhe Deewana Kar De - Tulsi Kumar.mp3`,`Khwaab Khwaab.mp3`,`Kusu Kusu - Satyameva Jayate 2.mp3`,`Leja Re.mp3`,`Raataan Lambiyan - Shershaah.mp3`,`Tere Hoth Madhur Hain Mukh Bhi Madhur - Adharam Madhuram ! Hindi.mp3`,`Thakim Tumar Hote Hukhot Song.mp3`,`Tum Hi Aana - Marjaavaan.mp3`]
 
 
 let i=0
@@ -33,7 +35,7 @@ button_play.addEventListener("click",playstop)
 
     function playstop()
     {
-    songname.textContent=songs[i]
+    songname.textContent=`${songs[i]}`
  
 endtime()
 audio.addEventListener("loadedmetadata",endtime)
@@ -217,14 +219,16 @@ document.addEventListener("click",function(event){
 
 //complete search operations
 
-searchbutton.addEventListener("click",function(){
- 
+searching.addEventListener("input",function(){
+
+   if(searching.value!==""){
+    
     let search=searching.value.toLowerCase()
 
     let filtersongs=songs.filter(function(song){
         return song.toLowerCase().includes(search)
        
-    })
+    }) 
 
     songlist.innerHTML=""
 
@@ -237,7 +241,6 @@ searchbutton.addEventListener("click",function(){
            const li=document.createElement("li") 
          
            let button=document.createElement("button") 
-        
            button.textContent=song 
 
            button.addEventListener("click",function(){
@@ -247,16 +250,18 @@ searchbutton.addEventListener("click",function(){
           ul.appendChild(li)
         
           
-   
+        
         })
         songlist.appendChild(ul)
     }
     else{
         songlist.textContent="try something else"
-    }
+    } }
 
 
 })
+
+
 
 
     
@@ -279,7 +284,9 @@ function searchplay(song){
     
 //extra space removal
 document.addEventListener("click",function(event){
+   
     if(event.target!==searchbutton ){
+      
         songlist.textContent=""
     }
 })

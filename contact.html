@@ -2,25 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contact</title>
+    <title>Contact</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-   <main>
-    <div>
-        <p>name:Aditya parmar</p>
-        <p>email:parmaraditya242@gmail.com</p>
+    <div class="inputname">
+       <label for="name">your name:</label>
+       <input type="text" name="name" id="name" required>
     </div>
-    <div>
-    <input type="text" name="name" id="name" placeholder="your name">
-  <label for="name">
-    <button  type="submit">submit</button>
-  </label>
+    <div class="inputemail">
+        <label for="email">Your Email:</label>
+        <input type="email" name="email" id="email" required>
     </div>
-    <div><textarea name="query" id="query" placeholder="your message"></textarea></div>
-    <label for="query">
-        <button  type="submit">submit</button>
-    </label>
-</main>
+    <div class="inputmessage">
+        <textarea name="message" id="message"  rows="6" cols="60" placeholder="send us your message"></textarea>
+        <button id="submit">submit</button>
+    </div>
+    
+    <div class="mydetails">
+        <p>Email: parmaraditya242@gmail.com</p>
+        <p>twitter:</p>
+        <p>github:</p>
+    </div>
+   <script src="contact.js"></script>
+
 </body>
 </html>
