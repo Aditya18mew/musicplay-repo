@@ -8,6 +8,8 @@ const searching=document.getElementById("search")
 const searchbutton=document.getElementById("searchbutton")
 const songlist=document.getElementById("songlist")
 let showduration=document.getElementById("duration")
+let showimage=document.getElementById("showimage")
+let navmenubutton=document.getElementById("navmenubutton")
 
 
 
@@ -16,7 +18,9 @@ let showduration=document.getElementById("duration")
 
 
 
-let songs=['Vaaste - Dhvani Bhanushali.mp3',`Nadaaniyan(PagalNew.Com.Se).mp3`,`Dilbar - Satyameva Jayate 320Kbps.mp3`,`Dil Galti Kar Baitha Hai - Jubin Nautiyal.mp3`,`I can see you from behind.mp3`,`Jo Mujhe Deewana Kar De - Tulsi Kumar.mp3`,`Khwaab Khwaab.mp3`,`Kusu Kusu - Satyameva Jayate 2.mp3`,`Leja Re.mp3`,`Raataan Lambiyan - Shershaah.mp3`,`Tere Hoth Madhur Hain Mukh Bhi Madhur - Adharam Madhuram ! Hindi.mp3`,`Thakim Tumar Hote Hukhot Song.mp3`,`Tum Hi Aana - Marjaavaan.mp3`]
+
+
+let songs=['Vaaste - Dhvani Bhanushali.mp3',`Nadaaniyan(PagalNew.Com.Se).mp3`,`Dilbar - Satyameva Jayate 320Kbps.mp3`,`Dil Galti Kar Baitha Hai - Jubin Nautiyal.mp3`,`I can see you from behind.mp3`,`Jo Mujhe Deewana Kar De - Tulsi Kumar.mp3`,`Khwaab Khwaab.mp3`,`Kusu Kusu - Satyameva Jayate 2.mp3`,`Leja Re.mp3`,`Raataan Lambiyan - Shershaah.mp3`,`Thakim Tumar Hote Hukhot Song.mp3`,`Tum Hi Aana - Marjaavaan.mp3`]
 
 
 let i=0
@@ -35,7 +39,7 @@ button_play.addEventListener("click",playstop)
 
     function playstop()
     {
-    songname.textContent=`${songs[i]}`
+    songname.innerHTML=`${songs[i].replace(".mp3","")}`
  
 endtime()
 audio.addEventListener("loadedmetadata",endtime)
@@ -48,12 +52,12 @@ audio.addEventListener("loadedmetadata",endtime)
     if(isplaying){
      
         audio.pause()
-        button_play.textContent="□"
+        button_play.innerHTML=`<img src="./images/play_5048239.png" alt=""  width="40"  height="40" ></img>`
         
     }else{
        
         audio.play()
-        button_play.textContent="| |"
+        button_play.innerHTML=`<img src="./images/pause_10312950.png" alt="" width="40" height="40"></img>`
        
        
     }
@@ -62,11 +66,15 @@ audio.addEventListener("loadedmetadata",endtime)
    
 //slider working
 
+
+
+
 let currentdur=document.getElementById("currentduration")
 
 const slider=document.getElementById("slider")
+slider.style.display="inline-block"
 sliderworking()
-audio.addEventListener("loadedmetadata",sliderworking)
+audio.addEventListener("timeupdate",sliderworking)
 function sliderworking()
 {  
 slider.min=0
@@ -147,17 +155,19 @@ nextsong.addEventListener("click",function(){
    i=(i+1)%songs.length
    audio=new
    Audio(songs[i])
-  
+ 
    playstop()
 })
 
 previoussong.addEventListener("click",function(){
+    
    if(i>0)
    { audio.pause()
     isplaying=false
    i=(i-1)%songs.length
    audio=new
    Audio(songs[i])
+  
   
    playstop()}
    else if(i<=0){
@@ -167,7 +177,7 @@ previoussong.addEventListener("click",function(){
    i=(i-1)%songs.length
    audio=new
    Audio(songs[i])
-  
+ 
    playstop()
    }
 })
@@ -178,26 +188,18 @@ previoussong.addEventListener("click",function(){
 
 
 // useless css buttons
-let navtogglebutton=document.getElementById("navtogglebutton")
-let nav_menu=document.getElementById("nav_menu")
+/* let navtogglebutton=document.getElementById("navtogglebutton")
 
-navtogglebutton.addEventListener("click",function(){
-    if(nav_menu.style.display==="block"){
-        nav_menu.style.display=`none`
-    }else{
-        nav_menu.style.display=`block`
-       
-    }
 
-})
+}) */
 
-document.addEventListener("click",function(event){
+/* document.addEventListener("click",function(event){
     if(!nav_menu.contains(event.target) && event.target!==navtogglebutton){
         nav_menu.style.display=`none`
-    }
-})
-let navbackgroundbutton=document.getElementById("navbackgroundbutton")
-let nav_background=document.getElementById("nav_background")
+    } 
+})*/
+/*  let navbackgroundbutton=document.getElementById("showsearch")
+let nav_background=document.getElementById("searchfield")
 
 navbackgroundbutton.addEventListener("click",function(){
     if(nav_background.style.display==="block"){
@@ -205,16 +207,16 @@ navbackgroundbutton.addEventListener("click",function(){
     }else{
         nav_background.style.display=`block`
        
-    }
+    } 
 
-})
-
+}) */
+/* 
 document.addEventListener("click",function(event){
     if(!nav_background.contains(event.target) && event.target!==navbackgroundbutton){
         nav_background.style.display=`none`
     }
 })
-
+ */
 
 
 //complete search operations
@@ -241,9 +243,10 @@ searching.addEventListener("input",function(){
            const li=document.createElement("li") 
          
            let button=document.createElement("button") 
-           button.textContent=song 
+           button.textContent=song.replace(".mp3","") 
 
            button.addEventListener("click",function(){
+         
             searchplay(song)
            })
            li.appendChild(button)  
@@ -257,7 +260,9 @@ searching.addEventListener("input",function(){
     else{
         songlist.textContent="try something else"
     } }
-
+else{
+    songlist.innerHTML=""
+}
 
 })
 
@@ -281,6 +286,35 @@ function searchplay(song){
         }
     }
 }
+
+// navmenubutton.addEventListener("click",function(){
+//     if(navmenu.style.display==="none"){
+//         navmenu.style.display="block"
+//     }
+//     if(navmenu.style.display==="block"){
+//         navmenu.style.display="none"
+//     }
+// })
+
+
+let nav_menu=document.getElementById("nav_menu")
+
+navmenubutton.addEventListener("click",function(){
+    if(nav_menu.style.display==="block"){
+        nav_menu.style.display=`none`
+    }else{
+        nav_menu.style.display=`block`
+       
+    }
+})
+
+
+
+
+
+
+
+
     
 //extra space removal
 document.addEventListener("click",function(event){
@@ -296,6 +330,4 @@ document.addEventListener("click",function(event){
         searching.value=""
         
 })
-
-
 

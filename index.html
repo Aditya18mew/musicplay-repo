@@ -9,58 +9,70 @@
        <link rel="stylesheet" href="musicplayer.css">
     </head>
     <body>
-        <main>
-        <div class="nav">
-             <button class="nav__button downarrow " id="navtogglebutton" >></button>
-             <div id="nav_menu">
-                <button><a href="/">Home</a></button>
-                <button><a href="contact.html">contact</a></button>
-            
-                
-             </div>
-            <h1 class="nav__h1" id="nav_h1"><strong class="iconmusic">♬</strong>NOW PLAYING</h1>
-            <button class="nav__button" id="navbackgroundbutton">☰</button>
-            <div id="nav_background">
-              
-                <button>
-                  <input type="text" name="search" id="search" placeholder="search">
-                 </button>
-              <!--    <button id="searchbutton">search</button> -->
-                
-                 <div id="songlist"></div>
-            
+        <main class="main">
+      <div class="topnav">
+        <button class="backbtn">
+            <h4 id="navmenubutton">➕</h4>
+            <div id="nav_menu" class="navmenu">
+            <ul>
+                    <li><a href="#">Home</a></li>
+                 
+                    <li><a href="contact.html">contact</a></li>
+                   
+                    <li><a href="">about</a></li>
+                </ul>
             </div>
-        </div>
+        </button>
+        
+    
+       
+    
+    <div class="searchfield">
+        <input type="text" name="search" id="search" class="searchbtn" placeholder="        search">
+     
+       <div id="songlist"></div>
+      </div>
+      </div>
 
-<div class="center">
+    
+      </div>
 
-</div>
-<div class="songname">
-    <p id="songname"></p>
-</div>
-
-<div class="bottom">
-    <button class="previoussong" id="previoussong">⋖</button>
-    <button class="bottom_updown sideleft" id="rewind">↺</button>
-    <button class="bottom_play" id="button_play">></button>
-    <button class="bottom_updown sideright" id="forward">↻</button>
-    <button class="nextsong" id="nextsong"> ⋗ </button>
    
+      <div class="showimage" id="showimage">
+      <img  src="./images/StockCake-Colorful cocktail glasses_1722410258.jpg" alt="" width="300" height="300">
+      </div>
 
+      <div class="endblock">
+<div class="endblock_top">
+    <h1 class="songname" id="songname"></h1>
+   
 </div>
-<div class="sliderm">
-   <input id="slider" type="range" class="sliderbutton"  >
-</div>
-<div class="time">
-<p class="currentduration" id="currentduration"></p>
-<p  class="showduration" id="duration"></p>
 
+
+<div class="endblock_middle">
+    <div class="time">
+   <span class="currenttime" id="currentduration"></span>
+   <span class="maxtime" id="duration"></span>
+    </div>
+  <input type="range" id="slider" class="slider" value="0">
 </div>
+<div class="endblock_bottom">
+    <button id="previoussong"><img src="./images/back_15349783 (1).png" alt="" width="40" height="40"></button>
+    <button id="rewind"><img src="./images/previous_15349767.png" alt="" width="40" height="40"></button>
+   <button id="button_play"><img src="./images/play_5048239.png" alt=""  width="40"  height="40" ></button>
+    <button id="forward"><img src="./images/fast-forward_15349786.png" alt="" width="40" height="40"></button>
+    <button id="nextsong"><img src="./images/next_15349792.png" alt="" width="40" height="40"></button>
+</div>
+
+
+
+      </div>
 
 
 
     </main>
     <script src="musicplayer.js"></script>
+  
     </body>
 </html>
 
